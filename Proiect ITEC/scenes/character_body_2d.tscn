@@ -1,0 +1,139 @@
+[gd_scene load_steps=21 format=3 uid="uid://6q144a245pxh"]
+
+[ext_resource type="Texture2D" uid="uid://cf2c5814bx8x7" path="res://assets/bk_player_assets/player_pumpgun_stand.png" id="1_2y5vt"]
+[ext_resource type="Script" path="res://scripts/player.gd" id="1_g5ucq"]
+[ext_resource type="Texture2D" uid="uid://bq6ijqx12a0j" path="res://assets/bk_player_assets/player_run_strip6.png" id="2_tp7dq"]
+[ext_resource type="Texture2D" uid="uid://btyprh6mpqtt1" path="res://assets/bk_player_assets/player_walk_strip6.png" id="3_d2trb"]
+[ext_resource type="Texture2D" uid="uid://bawxq1j0ljda3" path="res://assets/light2.png" id="5_uicpq"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q6iea"]
+atlas = ExtResource("1_2y5vt")
+region = Rect2(0, 0, 63, 57)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k3lnp"]
+atlas = ExtResource("2_tp7dq")
+region = Rect2(0, 0, 80, 87)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rshiv"]
+atlas = ExtResource("2_tp7dq")
+region = Rect2(80, 0, 80, 87)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hts3s"]
+atlas = ExtResource("2_tp7dq")
+region = Rect2(160, 0, 80, 87)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c6p57"]
+atlas = ExtResource("2_tp7dq")
+region = Rect2(240, 0, 80, 87)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ywukm"]
+atlas = ExtResource("2_tp7dq")
+region = Rect2(320, 0, 80, 87)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_webnl"]
+atlas = ExtResource("2_tp7dq")
+region = Rect2(400, 0, 80, 87)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cgfji"]
+atlas = ExtResource("3_d2trb")
+region = Rect2(0, 0, 35, 57)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1s02p"]
+atlas = ExtResource("3_d2trb")
+region = Rect2(35, 0, 35, 57)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5nt6n"]
+atlas = ExtResource("3_d2trb")
+region = Rect2(70, 0, 35, 57)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8x5te"]
+atlas = ExtResource("3_d2trb")
+region = Rect2(105, 0, 35, 57)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s23ob"]
+atlas = ExtResource("3_d2trb")
+region = Rect2(140, 0, 35, 57)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rgs4o"]
+atlas = ExtResource("3_d2trb")
+region = Rect2(175, 0, 35, 57)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_cxft7"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q6iea")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k3lnp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rshiv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hts3s")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c6p57")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ywukm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_webnl")
+}],
+"loop": true,
+"name": &"run",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cgfji")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1s02p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5nt6n")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8x5te")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s23ob")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rgs4o")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 10.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_a3l0i"]
+radius = 23.0
+height = 58.0
+
+[node name="CharacterBody2D" type="CharacterBody2D"]
+script = ExtResource("1_g5ucq")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_cxft7")
+animation = &"idle"
+autoplay = "idle"
+frame_progress = 0.0647306
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(6, -5)
+shape = SubResource("CapsuleShape2D_a3l0i")
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+energy = 2.67
+texture = ExtResource("5_uicpq")
