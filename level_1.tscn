@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://dmi3j2tvkkm01"]
+[gd_scene load_steps=13 format=3 uid="uid://dmi3j2tvkkm01"]
 
 [ext_resource type="Texture2D" uid="uid://5mf7l3sxrkso" path="res://Walls.png" id="1_prst1"]
 [ext_resource type="Texture2D" uid="uid://dg1h04ajc8jym" path="res://trees_road_walls_other-removebg-preview.png" id="2_b7tyj"]
@@ -2595,6 +2595,21 @@ sources/0 = SubResource("TileSetAtlasSource_gqrkr")
 sources/1 = SubResource("TileSetAtlasSource_fhd8f")
 sources/2 = SubResource("TileSetAtlasSource_mv0tb")
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_f5y70"]
+size = Vector2(288, 80)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vufvj"]
+size = Vector2(112, 79)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wn5k7"]
+size = Vector2(78, 175)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_d1v2m"]
+size = Vector2(95, 79)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_two2d"]
+size = Vector2(80, 95)
+
 [node name="Level_1" type="TileMap"]
 tile_set = SubResource("TileSet_kje2r")
 rendering_quadrant_size = 32
@@ -2607,3 +2622,35 @@ layer_1/tile_data = PackedInt32Array(262149, 524289, 17, 262152, 720897, 17, 262
 layer_2/name = "3"
 layer_2/y_sort_origin = 2
 layer_2/tile_data = PackedInt32Array(131075, 0, 2, 196611, 196608, 3, 262147, 196608, 3, 327683, 196608, 3, 393219, 196608, 3, 458755, 196608, 3, 524291, 196608, 3, 589827, 196608, 3, 655363, 196608, 3, 720899, 196608, 3, 786435, 196608, 3, 851971, 131072, 1, 917507, 196608, 3, 983043, 196608, 3, 1048579, 196608, 3, 1114115, 196608, 3, 1179651, 0, 3, 131076, 131072, 3, 851972, 65536, 1, 1179652, 131072, 3, 131077, 131072, 3, 1179653, 131072, 3, 131078, 131072, 3, 1179654, 131072, 3, 131079, 131072, 3, 851975, 0, 0, 1179655, 131072, 3, 131080, 131072, 0, 196616, 0, 1, 393224, 65536, 0, 458760, 196608, 3, 524296, 0, 3, 851976, 131072, 3, 1179656, 131072, 3, 131081, 131072, 3, 524297, 131072, 3, 851977, 131072, 3, 1179657, 65536, 1, 131082, 131072, 3, 524298, 131072, 3, 851978, 131072, 3, 131083, 131072, 3, 524299, 131072, 3, 851979, 131072, 3, 131084, 131072, 3, 524300, 131072, 3, 851980, 131072, 3, 1179660, 0, 0, 131085, 131072, 0, 196621, 196608, 3, 262157, 0, 1, 458765, 65536, 0, 524301, 196608, 1, 851981, 131072, 3, 1179661, 131072, 3, 131086, 131072, 3, 524302, 131072, 0, 589838, 196608, 3, 655374, 196608, 3, 720910, 196608, 3, 786446, 196608, 3, 851982, 196608, 1, 1179662, 131072, 3, 131087, 131072, 3, 524303, 131072, 3, 851983, 65536, 1, 1179663, 131072, 3, 131088, 131072, 3, 524304, 131072, 3, 1179664, 131072, 3, 131089, 131072, 0, 524305, 131072, 3, 1179665, 131072, 3, 131090, 131072, 3, 524306, 131072, 3, 851986, 0, 0, 1179666, 131072, 3, 131091, 131072, 3, 524307, 131072, 3, 851987, 131072, 3, 1179667, 131072, 3, 131092, 131072, 3, 524308, 131072, 3, 851988, 131072, 3, 1179668, 131072, 3, 131093, 65536, 2, 196629, 196608, 3, 262165, 196608, 3, 327701, 196608, 3, 393237, 196608, 3, 458773, 196608, 3, 524309, 196608, 0, 589845, 196608, 3, 655381, 196608, 3, 720917, 196608, 3, 786453, 196608, 3, 851989, 196608, 0, 917525, 196608, 3, 983061, 196608, 3, 1048597, 196608, 3, 1114133, 196608, 3, 1179669, 65536, 3, 196627, 1179650, 1610612745, 262163, 1179650, 1610612745, 262161, 0, 1, 196625, 196608, 3)
+
+[node name="Room_1" type="Area2D" parent="."]
+position = Vector2(184, 260)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Room_1"]
+position = Vector2(16, -4)
+shape = SubResource("RectangleShape2D_f5y70")
+
+[node name="Room_2" type="Area2D" parent="."]
+position = Vector2(67, 13)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Room_2"]
+position = Vector2(221, 162.5)
+shape = SubResource("RectangleShape2D_vufvj")
+
+[node name="Room_3" type="Area2D" parent="."]
+position = Vector2(6, 43)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Room_3"]
+position = Vector2(90, 84.5)
+shape = SubResource("RectangleShape2D_wn5k7")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Room_3"]
+position = Vector2(177.5, 132.5)
+shape = SubResource("RectangleShape2D_d1v2m")
+
+[node name="Room_4" type="Area2D" parent="."]
+position = Vector2(-19, 75)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Room_4"]
+position = Vector2(195, 12.5)
+shape = SubResource("RectangleShape2D_two2d")
