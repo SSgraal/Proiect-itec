@@ -1,0 +1,31 @@
+[gd_scene load_steps=4 format=3 uid="uid://cv8s517tpbc5c"]
+
+[ext_resource type="Texture2D" uid="uid://ci10373xxi40k" path="res://assets/New_All_Fire_Bullet_Pixel_16x16/bullet.png" id="1_8im6s"]
+
+[sub_resource type="GDScript" id="GDScript_cw6xi"]
+script/source = "extends CharacterBody2D
+
+var speed = 1000  # Adjust as needed
+
+func _physics_process(delta):
+	velocity = velocity.normalized() * speed
+	move_and_slide_with_snap(velocity, Vector2.UP, Vector2.ZERO, true, 4, deg_to_rad(45))
+"
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_1dw7b"]
+radius = 2.75
+height = 5.5
+
+[node name="Bullet" type="CharacterBody2D"]
+texture_filter = 1
+scale = Vector2(2, 2)
+script = SubResource("GDScript_cw6xi")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(2, 2)
+shape = SubResource("CapsuleShape2D_1dw7b")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-0.5, 0)
+scale = Vector2(2, 2)
+texture = ExtResource("1_8im6s")

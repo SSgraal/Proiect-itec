@@ -1,0 +1,30 @@
+[gd_scene load_steps=5 format=3 uid="uid://2s42rnibjcn"]
+
+[ext_resource type="PackedScene" uid="uid://6q144a245pxh" path="res://scenes/character_body_2d.tscn" id="1_w5hm8"]
+[ext_resource type="Texture2D" uid="uid://c4vs0a0ljrn16" path="res://icon.svg" id="2_kqnvk"]
+[ext_resource type="PackedScene" uid="uid://hawogs763sl5" path="res://scenes/enemy.tscn" id="3_fjp2u"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sa52p"]
+size = Vector2(121, 123)
+
+[node name="main" type="Node"]
+
+[node name="CharacterBody2D" parent="." instance=ExtResource("1_w5hm8")]
+texture_filter = 1
+position = Vector2(542, 320)
+
+[node name="Sprite2D" type="CharacterBody2D" parent="."]
+position = Vector2(224, 318)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D"]
+position = Vector2(-1.5, 0.5)
+shape = SubResource("RectangleShape2D_sa52p")
+
+[node name="Sprite2D" type="Sprite2D" parent="Sprite2D"]
+texture = ExtResource("2_kqnvk")
+
+[node name="Enemy" parent="." instance=ExtResource("3_fjp2u")]
+position = Vector2(266, 116)
+scale = Vector2(2.2, 2.2)
+
+[connection signal="mouse_entered" from="Sprite2D" to="CharacterBody2D" method="_on_sprite_2d_mouse_entered"]
